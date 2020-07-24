@@ -16,7 +16,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@android:color/black"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:textSize="15dp"/>
 
         <TextView
             android:id="@+id/employee_name"
@@ -24,7 +27,10 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceButton"
             android:textColor="@android:color/black"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:textSize="15dp"/>
 
         <TextView
             android:id="@+id/employee_dateOfBirth"
@@ -32,7 +38,10 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceButton"
             android:textColor="@android:color/black"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:textSize="15dp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -46,7 +55,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@android:color/black"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_marginLeft="15dp"
+            android:textSize="15dp"/>
 
         <TextView
             android:id="@+id/employee_address"
@@ -54,7 +65,9 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceButton"
             android:textColor="@android:color/black"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_marginLeft="15dp"
+            android:textSize="15dp"/>
     </LinearLayout>
 
 </LinearLayout>

@@ -27,6 +27,7 @@ public class SearchActivity extends AppCompatActivity {
 
     private final String TAG = "SearchActivity";
     private ConnectionsDatabaseHelper cDbHelper;
+    private int attributeId;
     private ArrayList<Attribute> attributeModels;
     private ListView attributesListView;
     private CustomAttributeAdapter attributesAdapter;
@@ -58,6 +59,7 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Attribute dataModel= attributeModels.get(position);
+                attributeId = dataModel.getId();
                 Log.i(TAG, dataModel.getName());
                 employeeModels = cDbHelper.getEmployeesBasedOnAttributeId(dataModel.getId());
                 for(int i=0; i<employeeModels.size(); i++){
@@ -80,11 +82,12 @@ public class SearchActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Employee dataModel= employeeModels.get(position);
                 Log.i(TAG, "Employee with name "+dataModel.getName());
-//                Bundle dataBundle = new Bundle();
-//                dataBundle.putInt( "id", dataModel.getId() );
-//                Intent intent = new Intent(getApplicationContext(), ChangeEmployeeActivity.class);
-//                intent.putExtras(dataBundle);
-//                startActivity(intent);
+                Bundle dataBundle = new Bundle();
+                dataBundle.putInt( "attributeId", attributeId );
+                dataBundle.putInt( "employeeId", dataModel.getId());
+                Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
+                intent.putExtras(dataBundle);
+                startActivity(intent);
             }
         });
     }

@@ -40,6 +40,7 @@ public class NewAttributeActivity extends AppCompatActivity {
                     int attributes = dbHelper.numberOfAttributes();
                     dbHelper.insertAttribute( (attributes+1), newValue);
                     Toast.makeText(getApplicationContext(),"Added attribute with value "+newValue, Toast.LENGTH_SHORT).show();
+                    goToAllAttributes();
                 }
             }
         });
@@ -48,10 +49,14 @@ public class NewAttributeActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), AllAttributesActivity.class);
-                startActivity(intent);
+                goToAllAttributes();
             }
         });
+    }
+
+    public void goToAllAttributes(){
+        Intent intent = new Intent(getApplicationContext(), AllAttributesActivity.class);
+        startActivity(intent);
     }
 
 }

@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.googlemaps.R;
+import com.example.googlemaps.attributes.AllAttributesActivity;
 import com.example.googlemaps.database.EmployeeDatabaseHelper;
 import java.util.Calendar;
 
@@ -42,8 +43,7 @@ public class NewEmployeeActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), AllEmployeesActivity.class);
-                startActivity(intent);
+                goToAllEmployees();
             }
         });
         name = (EditText)findViewById(R.id.newEmployeeName);
@@ -94,11 +94,17 @@ public class NewEmployeeActivity extends AppCompatActivity {
                     double longitudeValue = Double.parseDouble(longitudeValueString);
                     eDbHelper.insertEmployee((code + 1), nameValue, birthDateValue, hasCarValue, addressValue, latitudeValue, longitudeValue);
                     Toast.makeText(getApplicationContext(), "New Employee with ID: " + (code + 1), Toast.LENGTH_SHORT).show();
+                    goToAllEmployees();
                 }
                 else
                     Toast.makeText(getApplicationContext(), "Please fill all the fields ", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    public void goToAllEmployees(){
+        Intent intent = new Intent(getApplicationContext(), AllEmployeesActivity.class);
+        startActivity(intent);
     }
 
 }

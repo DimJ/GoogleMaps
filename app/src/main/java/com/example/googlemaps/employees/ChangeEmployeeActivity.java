@@ -66,8 +66,7 @@ public class ChangeEmployeeActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), AllEmployeesActivity.class);
-                startActivity(intent);
+                goToAllEmployees();
             }
         });
         name = (EditText)findViewById(R.id.changeEmployeeName);
@@ -119,8 +118,7 @@ public class ChangeEmployeeActivity extends AppCompatActivity {
             public void onClick(View view) {
                 cDbHelper.deleteEmployee(id);
                 cDbHelper.deleteConnectionBasedOnEmployee(id);
-                Intent intent = new Intent(getApplicationContext(), AllEmployeesActivity.class);
-                startActivity(intent);
+                goToAllEmployees();
             }
         });
 
@@ -139,8 +137,14 @@ public class ChangeEmployeeActivity extends AppCompatActivity {
 
                 cDbHelper.updateEmployee(employee.getId(), nameValue, birthDateValue, hasCarValue, addressValue, latitudeValue, longitudeValue);
                 Toast.makeText(getApplicationContext()," Updated Employee ", Toast.LENGTH_SHORT).show();
+                goToAllEmployees();
             }
         });
+    }
+
+    public void goToAllEmployees(){
+        Intent intent = new Intent(getApplicationContext(), AllEmployeesActivity.class);
+        startActivity(intent);
     }
 
 }

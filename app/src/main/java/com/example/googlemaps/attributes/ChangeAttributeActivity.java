@@ -48,8 +48,7 @@ public class ChangeAttributeActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), AllAttributesActivity.class);
-                startActivity(intent);
+                goToAllAttributes();
             }
         });
 
@@ -59,8 +58,7 @@ public class ChangeAttributeActivity extends AppCompatActivity {
             public void onClick(View view) {
                 cDbHelper.deleteAttribute(id);
                 cDbHelper.deleteConnectionBasedOnAttribute(id);
-                Intent intent = new Intent(getApplicationContext(), AllAttributesActivity.class);
-                startActivity(intent);
+                goToAllAttributes();
             }
         });
 
@@ -72,9 +70,15 @@ public class ChangeAttributeActivity extends AppCompatActivity {
                     if( !newValue.isEmpty() ){
                         cDbHelper.updateAttribute(id, newValue);
                         Toast.makeText(getApplicationContext(),"Updated attribute with value "+newValue, Toast.LENGTH_SHORT).show();
+                        goToAllAttributes();
                     }
             }
         });
+    }
+
+    public void goToAllAttributes(){
+        Intent intent = new Intent(getApplicationContext(), AllAttributesActivity.class);
+        startActivity(intent);
     }
 
 }

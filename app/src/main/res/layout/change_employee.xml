@@ -81,13 +81,15 @@
             android:id="@+id/changeEmployeeDelete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Delete Employee" />
+            android:text="Delete Employee"
+            android:layout_weight="1"/>
 
         <Button
             android:id="@+id/changeEmployeeChange"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Change Employee" />
+            android:text="Update Employee"
+            android:layout_weight="1"/>
     </LinearLayout>
 
     <TextView
